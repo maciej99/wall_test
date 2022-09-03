@@ -29,7 +29,7 @@ public class Wall implements Structure {
 
   public List findBlocksByMaterial(String material){
 	// utwórz nową listę
-  	List<Block> matching = new ArrayList<>();
+  	List<Block> matching = new ArrayList<Block>();
   	int size = blocks.size();
   	Block block;
   	int i = -1;
