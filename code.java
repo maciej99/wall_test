@@ -14,17 +14,21 @@ public class Wall implements Structure {
 
   public Optional findBlockByColor(String color){
  	int size = blocks.size();
-	Block block;
+	Block match = null;
    	int i = -1;
 	while(++i<size){
-  		block = blocks.get(i);
+  		Block block = blocks.get(i);
   		String c = block.getColor();
-	  	// gdy znajdziemy zadany kolor zwróć ten block
-	  	if(c.equals(color)) return block; 
+	  	// gdy znajdziemy zadany kolor przypisz ten block do match i przerwij pętlę
+	  	if(c.equals(color)) {
+			match=block;
+			break;
+		}
 	}
   	// jesli pętla wykona się do końca nie znajdując żadnego elementu 
-  	// o zadanym kolorze, zwróć null
-  	return null;
+  	// o zadanym kolorze, match pozostaje null
+	Optional<Block> opt = Optional.ofNullable(match);
+  	return opt;
   }
 
   public List findBlocksByMaterial(String material){
@@ -36,7 +40,7 @@ public class Wall implements Structure {
   	while(++i<size){
 	  	block = blocks.get(i);
 	  	String m = block.getMaterial();
-	  	// gdy znajdziemy zadany material dodaj do listy matching
+	  	// gdy znajdziemy zadany material dodaj ten block do listy matching
 	  	if(m.equals(material)) matching.add(block); 
 	}
 	// zwróć listę matching
