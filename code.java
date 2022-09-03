@@ -19,8 +19,8 @@ public class Wall implements Structure {
 	while(++i<size){
   		block = blocks.get(i);
   		String c = block.getColor();
-	  	// gdy znajdziemy zadany kolor zwróć ten block, zrób type-casting na Optional
-	  	if(c.equals(color)) return (Optional) block; 
+	  	// gdy znajdziemy zadany kolor zwróć ten block
+	  	if(c.equals(color)) return block; 
 	}
   	// jesli pętla wykona się do końca nie znajdując żadnego elementu 
   	// o zadanym kolorze, zwróć null
