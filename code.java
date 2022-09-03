@@ -43,7 +43,7 @@ public class Wall implements Structure {
 	  return matching; 
   }
 
-  public int count{
+  public int count(){
 	  return blocks.size();
   }
 }
